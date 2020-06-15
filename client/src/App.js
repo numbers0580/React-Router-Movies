@@ -45,9 +45,7 @@ const App = () => {
             <MovieList movieData={movieList} />
             {/* <MovieCard cardData={movieList} /> */}
           </Route>
-          <Route path='/movies/:id'>
-            <Movie />
-          </Route>
+          <Route path='/movies/:id' component={Movie} />
         </Switch>
       </BrowserRouter>
     </div>
