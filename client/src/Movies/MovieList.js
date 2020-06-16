@@ -18,6 +18,7 @@ function MovieDetails({ movie }) {
   return (
     <Link to={`/movies/${movie.id}`}>
       {/* Stretch Below */}
+      {/* I tried passing the entire movie object to MovieCard, but ran into issues to due map function above. Passed individual values */}
       <MovieCard cTitle={title} cDir={director} cMeta={metascore} cStars={stars} />
     </Link>
   );

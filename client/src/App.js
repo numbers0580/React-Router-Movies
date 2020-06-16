@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import {BrowserRouter, Route, Link, Switch} from 'react-router-dom';
+import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import axios from 'axios';
 
 import SavedList from './Movies/SavedList';
@@ -30,25 +30,18 @@ const App = () => {
   };
 
   return (
-    // <BrowserRouter>
-    //   <div>
-    //     <SavedList list={savedList} />
-    //     {/* <Route exact path="/" component={MovieList} /> */}
-    //     <MovieList movieData={movieList} />
-    //   </div>
-    // </BrowserRouter>
-    <div>
-      <BrowserRouter>
-        <SavedList list={savedList} />
-        <Switch>
-          <Route exact path='/'>
-            <MovieList movieData={movieList} />
-            {/* <MovieCard cardData={movieList} /> */}
-          </Route>
-          <Route path='/movies/:id' component={Movie} />
-        </Switch>
-      </BrowserRouter>
-    </div>
+    <BrowserRouter>
+      <SavedList list={savedList} />
+      <Switch>
+        {/* Tried component={movieList} in Route tag below, but nested due to errors */}
+        <Route exact path='/'>
+          <MovieList movieData={movieList} />
+          {/* <MovieCard cardData={movieList} /> */}
+        </Route>
+        {/* This component inside this Route worked, though. I assume because I wasn't passing an object to props */}
+        <Route path='/movies/:id' component={Movie} />
+      </Switch>
+    </BrowserRouter>
   );
 };
 

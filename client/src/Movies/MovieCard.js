@@ -1,8 +1,7 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
 
 const MovieCard = props => {
-  //const {cardData} = props;
+  //const {cardData} = props; // See comment in MovieList.js for explanation why I removed this line
   const { cTitle, cDir, cMeta, cStars } = props;
   return (
     <div className="movie-card">
